@@ -133,6 +133,8 @@ CNMEAParserData::ERROR_E CNMEAParserQt::ProcessRxCommand(char *pCmd, char *pData
     // Update position anytime we get
     if(strstr(pCmd, "GGA") != nullptr) {
         emit NewPositionUpdateGPS();
+
+        qDebug() << "--- Updated Position Received ---";
     }
 
     emit MessageProcessed();
