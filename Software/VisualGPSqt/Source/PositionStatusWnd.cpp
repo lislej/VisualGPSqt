@@ -44,8 +44,10 @@ void CPositionStatusWnd::paintEvent(QPaintEvent */*event*/){
 
     //
     // Scale the text based on width
-    int nSize = (int)( width() * 0.06 );
-    QFont Font("Helvetica [Cronyx]", nSize);
+    int nSize = (int)( width() * 0.03 );
+    //QFont Font("Helvetica [Cronyx]", nSize);
+    QFont Font("Arial", nSize);
+
     painter.setFont(Font);
     QFontMetrics fontMetrics(Font);
 
@@ -86,8 +88,8 @@ void CPositionStatusWnd::paintEvent(QPaintEvent */*event*/){
     painter.drawText(rcDraw, str);
     QRectF rcTextBounds = painter.boundingRect(rcDraw, Qt::AlignLeft, str);
 
-    str.sprintf("%f\n"
-                "%f\n"
+    str.sprintf("%8f\n"
+                "%8f\n"
                 "%.02f M\n"
                 "%.02f KT\n"
                 "%02d:%02d:%02d %04d\n",

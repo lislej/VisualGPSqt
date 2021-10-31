@@ -198,9 +198,10 @@ void CSignalQuality::DrawScreen() {
     //
     // Create font - size it to the sig qual bar width
     //
-    int nSize = static_cast<int>( dWidth * 0.3 );
+    int nSize = static_cast<int>( dWidth * 0.1 );
     if(nSize > 20) nSize = 20;
-    QFont Font("Helvetica [Cronyx]", nSize);
+    //QFont Font("Helvetica [Cronyx]", nSize);
+    QFont Font("Arial", nSize);
     painter.setFont(Font);
 
     //
