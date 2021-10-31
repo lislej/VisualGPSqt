@@ -95,16 +95,18 @@ void CAzimuthElevationWnd::DrawScreen(){
         qDebug() << "Could load imgSatDisabled image";
     }
 
-    int nSize = (int)( dSmallSide * 0.045 );
-    QFont Font("Helvetica [Cronyx]", nSize);
+    int nSize = (int)( dSmallSide * 0.015 );
+    //QFont Font("Helvetica [Cronyx]", nSize);
+    QFont Font("Arial]", nSize);
     painter.setFont(Font);
     QFontMetrics fontMetrics(Font);
 
-    for (std::map<int, SAT_INFO_T>::iterator it=mapSatData.begin(); it!=mapSatData.end(); ++it) {
+    for (std::map<int, SAT_INFO_T>::iterator it=mapSatData.begin(); it!=mapSatData.end(); ++it)
+    {
         SAT_INFO_T satInfo = it->second;
 
-        if(satInfo.nPRN != 0 && (int)satInfo.nAzimuth != 0 && (int)satInfo.nElevation != 0){
-            QPoint pt = AEToPoint(dCenterX, dCenterY, (int)satInfo.nAzimuth, satInfo.nElevation, rcDraw);
+        if(satInfo.nPRN != 0 && satInfo.nAzimuth != 0 && satInfo.nElevation != 0){
+            QPoint pt = AEToPoint(dCenterX, dCenterY, satInfo.nAzimuth, satInfo.nElevation, rcDraw);
             qreal dScale = dSmallSide * 0.08;
             QRectF rcImage(pt.x()-dScale/2, pt.y()-dScale/2, dScale, dScale);
 
